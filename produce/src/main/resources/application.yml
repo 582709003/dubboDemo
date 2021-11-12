@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: dubbo-demo-produce
+#server:
+#  port: 8888
+dubbo:
+  application:
+    name: produce
+    #使用应用级进行注册
+    register-mode: instance
+  # ??????
+  registry:
+    address: nacos://127.0.0.1:8848
+  # ???????????????????????????????????
+  #其实最终调用服务的时候并不是使用http协议，并不是使用server.port端口调用服务，而是使用这里
+  #声明的dubbo协议或者其他协议的端口号调用服务
+  protocol:
+    port: -1
+    name: dubbo
